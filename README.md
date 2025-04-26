@@ -1,9 +1,5 @@
-缓存系统（Go）
-
-# KamaCache
-
+# Distributed-Cache
 ## 核心特性
-
 ### 1. 分布式架构
 - 基于 etcd 的服务注册与发现
 - 一致性哈希实现负载均衡
@@ -239,12 +235,3 @@ err := group.Delete(ctx, "key")
 2. 异步数据同步减少延迟
 3. 单飞机制避免缓存击穿
 4. 支持批量操作提高吞吐量
-
-## 贡献指南
-
-欢迎提交 Issue 和 Pull Request。
-
-## 许可证
-
-MIT License
-
