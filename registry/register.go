@@ -10,7 +10,7 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
-// Config 定义etcd客户端配置
+// Config 定义 etcd 客户端配置
 type Config struct {
 	Endpoints   []string      // 集群地址
 	DialTimeout time.Duration // 连接超时时间

@@ -25,15 +25,15 @@ type Server struct {
 	addr       string           // 服务地址
 	svcName    string           // 服务名称
 	groups     *sync.Map        // 缓存组
-	grpcServer *grpc.Server     // gRPC服务器
-	etcdCli    *clientv3.Client // etcd客户端
+	grpcServer *grpc.Server     // gRPC 服务器
+	etcdCli    *clientv3.Client // etcd 客户端
 	stopCh     chan error       // 停止信号
 	opts       *ServerOptions   // 服务器选项
 }
 
 // ServerOptions 服务器配置选项
 type ServerOptions struct {
-	EtcdEndpoints []string      // etcd端点
+	EtcdEndpoints []string      // etcd 端点
 	DialTimeout   time.Duration // 连接超时
 	MaxMsgSize    int           // 最大消息大小
 	TLS           bool          // 是否启用TLS
@@ -51,7 +51,7 @@ var DefaultServerOptions = &ServerOptions{
 // ServerOption 定义选项函数类型
 type ServerOption func(*ServerOptions)
 
-// WithEtcdEndpoints 设置etcd端点
+// WithEtcdEndpoints 设置 etcd 端点
 func WithEtcdEndpoints(endpoints []string) ServerOption {
 	return func(o *ServerOptions) {
 		o.EtcdEndpoints = endpoints
@@ -65,7 +65,7 @@ func WithDialTimeout(timeout time.Duration) ServerOption {
 	}
 }
 
-// WithTLS 设置TLS配置
+// WithTLS 设置 TLS 配置
 func WithTLS(certFile, keyFile string) ServerOption {
 	return func(o *ServerOptions) {
 		o.TLS = true
@@ -81,7 +81,7 @@ func NewServer(addr, svcName string, opts ...ServerOption) (*Server, error) {
 		opt(options)
 	}
 
-	// 创建etcd客户端
+	// 创建 etcd 客户端
 	etcdCli, err := clientv3.New(clientv3.Config{
 		Endpoints:   options.EtcdEndpoints,
 		DialTimeout: options.DialTimeout,

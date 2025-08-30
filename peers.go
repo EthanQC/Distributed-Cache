@@ -16,7 +16,7 @@ import (
 
 const defaultSvcName = "kama-cache"
 
-// PeerPicker 定义了peer选择器的接口
+// PeerPicker 定义了 peer 选择器的接口
 type PeerPicker interface {
 	PickPeer(key string) (peer Peer, ok bool, self bool)
 	Close() error

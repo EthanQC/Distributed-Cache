@@ -110,7 +110,7 @@ func (c *lruCache) SetWithExpiration(key string, value Value, expiration time.Du
 		delete(c.expires, key)
 	}
 
-	// 如果键已存在，更新值
+	// 如果键已存在 更新值
 	if elem, ok := c.items[key]; ok {
 		oldEntry := elem.Value.(*lruEntry)
 		c.usedBytes += int64(value.Len() - oldEntry.value.Len())

@@ -2,10 +2,11 @@ package kamacache
 
 import (
 	"context"
-	"github.com/youngyangyang04/KamaCache-Go/store"
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/youngyangyang04/KamaCache-Go/store"
 
 	"github.com/sirupsen/logrus"
 )
@@ -232,7 +233,6 @@ func (c *Cache) Stats() map[string]interface{} {
 	if atomic.LoadInt32(&c.initialized) == 1 {
 		stats["size"] = c.Len()
 
-		// 计算命中率
 		totalRequests := stats["hits"].(int64) + stats["misses"].(int64)
 		if totalRequests > 0 {
 			stats["hit_rate"] = float64(stats["hits"].(int64)) / float64(totalRequests)

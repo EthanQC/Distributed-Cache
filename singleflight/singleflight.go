@@ -13,7 +13,7 @@ type call struct {
 
 // Group manages all kinds of calls
 type Group struct {
-	m sync.Map // 使用sync.Map来优化并发性能
+	m sync.Map // 使用 sync.Map 来优化并发性能
 }
 
 // Do 针对相同的key，保证多次调用Do()，都只会调用一次fn

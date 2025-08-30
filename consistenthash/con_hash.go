@@ -13,16 +13,22 @@ import (
 // Map 一致性哈希实现
 type Map struct {
 	mu sync.RWMutex
+
 	// 配置信息
 	config *Config
+
 	// 哈希环
 	keys []int
+
 	// 哈希环到节点的映射
 	hashMap map[int]string
+
 	// 节点到虚拟节点数量的映射
 	nodeReplicas map[string]int
+
 	// 节点负载统计
 	nodeCounts map[string]int64
+
 	// 总请求数
 	totalRequests int64
 }

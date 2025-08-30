@@ -17,10 +17,10 @@ var (
 	groups   = make(map[string]*Group)
 )
 
-// ErrKeyRequired 键不能为空错误
+// ErrKeyRequired 键不能为空 错误
 var ErrKeyRequired = errors.New("key is required")
 
-// ErrValueRequired 值不能为空错误
+// ErrValueRequired 值不能为空 错误
 var ErrValueRequired = errors.New("value is required")
 
 // ErrGroupClosed 组已关闭错误
